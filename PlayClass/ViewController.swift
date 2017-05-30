@@ -21,18 +21,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let url = URL.init(fileURLWithPath: Bundle.main.path(
-//            forResource: "music",
-//            ofType: "mp3")!)
-//        do {
-//            try audioPlayer = AVAudioPlayer(contentsOf: url)
-//            audioPlayer?.delegate = self as? AVAudioPlayerDelegate
-//            audioPlayer?.prepareToPlay()
-//        } catch let error as NSError {
-//            print("audioPlayer error \(error.localizedDescription)")
-//        }
-        
-        //playB.isEnabled = false
         
         let fileMgr = FileManager.default
         
@@ -73,30 +61,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     
     
     @IBAction func playMusic(_ sender: AnyObject) {
-//        var path = Bundle.main.path(forResource: "73 - Questions", ofType: "mp3")
-//        if path != nil {
-//            
-//            var audioFileUrl = NSURL.fileURL(withPath: path!)
-//            do {
-//                try audioPlayer = AVAudioPlayer(contentsOf: audioFileUrl)
-//            } catch is NSError {
-//                
-//            }
-//            
-//            audioPlayer.play()
-//            
-//        } else {
-//            print("audio file is not found")
-//        }
-        
-//        if let player = audioPlayer {
-//            player.play()
-//        }
-        
         
         if audioRecorder?.isRecording == false {
-//            stopB.isEnabled = true
-//            recordB.isEnabled = false
             
             do {
                 try audioPlayer = AVAudioPlayer(contentsOf:
@@ -113,8 +79,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     
     @IBAction func record(_ sender: Any) {
         if audioRecorder?.isRecording == false {
-            //playB.isEnabled = false
-            //stopB.isEnabled = true
             audioRecorder?.record()
         }
     }
