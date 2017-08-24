@@ -13,19 +13,18 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     
     @IBOutlet weak var recordB: UIButton!
     @IBOutlet weak var playB: UIButton!
+    @IBOutlet weak var stopB: UIButton!
+    
     var audioPlayer : AVAudioPlayer?
     var audioRecorder: AVAudioRecorder?
     var isPlaying = false
-
-    @IBOutlet weak var stopB: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let fileMgr = FileManager.default
         
-        let dirPaths = fileMgr.urls(for: .documentDirectory,
-                                    in: .userDomainMask)
+        let dirPaths = fileMgr.urls(for: .documentDirectory, in: .userDomainMask)
         
         let soundFileURL = dirPaths[0].appendingPathComponent("sound.caf")
         
@@ -45,19 +44,12 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         }
         
         do {
-            try audioRecorder = AVAudioRecorder(url: soundFileURL,
-                                                settings: recordSettings as [String : AnyObject])
+            try audioRecorder = AVAudioRecorder(url: soundFileURL, settings: recordSettings as [String : AnyObject])
             audioRecorder?.prepareToRecord()
         } catch let error as NSError {
             print("audioSession error: \(error.localizedDescription)")
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     
     
     @IBAction func playMusic(_ sender: AnyObject) {
@@ -75,8 +67,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             }
         }
     }
-    
-    
+     
     @IBAction func record(_ sender: Any) {
         if audioRecorder?.isRecording == false {
             audioRecorder?.record()
