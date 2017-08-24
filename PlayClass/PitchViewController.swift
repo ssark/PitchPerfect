@@ -23,11 +23,6 @@ class PitchViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecor
     var audioFile: AVAudioFile!
     var audioPlayerNode: AVAudioPlayerNode!
     
-    
-
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let audioSession = AVAudioSession.sharedInstance()
