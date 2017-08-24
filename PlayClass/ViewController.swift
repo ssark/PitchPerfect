@@ -55,7 +55,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     @IBAction func playMusic(_ sender: AnyObject) {
         
         if audioRecorder?.isRecording == false {
-            
             do {
                 try audioPlayer = AVAudioPlayer(contentsOf:
                     (audioRecorder?.url)!)
